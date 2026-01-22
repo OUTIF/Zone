@@ -5,99 +5,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - ZONE Studio</title>
+    <link rel="icon" type="image/jpeg" href="img/Logo0.jpg">
     <link rel="stylesheet" href="styles.css">
+    <script src="language.js"></script>
 </head>
 <body>
     <nav>
         <div class="logo">
             <a href="index.html">
-                <img src="https://github.com/user-attachments/assets/dd2e23c5-c5b5-4ab1-8a74-633e662b9dc5" alt="Zone Studio Logo">
+                <img src="img/Logo0.jpg" alt="Zone Studio Logo">
             </a>
         </div>
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="projects.html" class="active">Projects</a></li>
-            <li><a href="studio.html">Studio</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html" data-translate-nav="home">Home</a></li>
+            <li><a href="services.html" data-translate-nav="services">Services</a></li>
+            <li><a href="projects.html" class="active" data-translate-nav="projects">Projects</a></li>
+            <li><a href="studio.html" data-translate-nav="studio">Studio</a></li>
+            <li><a href="contact.html" data-translate-nav="contact">Contact</a></li>
         </ul>
+        <div class="language-switcher">
+            <button class="lang-btn">عربي</button>
+        </div>
     </nav>
 
     <div class="page-header">
-        <h1>Our Work</h1>
-        <p>Showcasing our finest productions</p>
+        <h1 data-translate-projects="title">Projects</h1>
+        <p data-translate-projects="subtitle">Showcasing our finest productions</p>
     </div>
 
     <section>
-        <div class="section-subtitle">Completed Projects</div>
-        
         <div class="projects-grid">
-            <!-- Project 1 Template -->
+            <!-- Project 1: Abjed House -->
             <div class="project-card">
-                <div class="project-image">PROJECT IMAGE</div>
+                <div class="project-image">
+                    <img src="img/abjedhouuse(tv show).jpg" alt="Abjed House TV Show">
+                </div>
                 <div class="project-content">
                     <div class="project-type">TV Series</div>
-                    <h3>Project Title Here</h3>
-                    <p class="project-description">
-                        Brief description of your role: Full soundtrack composition, sound design, mixing and mastering for this acclaimed series.
+                    <h3 data-translate-project-name="abjedHouse">Abjed House</h3>
+                    <p class="project-description" data-translate-project-desc="abjedHouse">
+                        Full soundtrack composition, sound design, mixing and mastering for this acclaimed TV series.
                     </p>
-                    <span class="project-award">🏆 Award Name - Year</span>
                 </div>
             </div>
 
-            <!-- Project 2 Template -->
+            <!-- Project 2: Heaven and Hell -->
             <div class="project-card">
-                <div class="project-image">PROJECT IMAGE</div>
+                <div class="project-image">
+                    <img src="img/Heaven and hell(tv show).jpg" alt="Heaven and Hell TV Show">
+                </div>
+                <div class="project-content">
+                    <div class="project-type">TV Series</div>
+                    <h3 data-translate-project-name="heavenAndHell">Heaven and Hell</h3>
+                    <p class="project-description" data-translate-project-desc="heavenAndHell">
+                        Complete audio production including original score, sound design, and final mix for this dramatic TV series.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Project 3: C++ -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="img/c++(short film).jpg" alt="C++ Short Film">
+                </div>
                 <div class="project-content">
                     <div class="project-type">Short Film</div>
-                    <h3>Project Title Here</h3>
-                    <p class="project-description">
-                        Brief description of your role and the project's impact.
-                    </p>
-                    <span class="project-award">🏆 Global Film Festival - Best Sound</span>
-                </div>
-            </div>
-
-            <!-- Project 3 Template -->
-            <div class="project-card">
-                <div class="project-image">PROJECT IMAGE</div>
-                <div class="project-content">
-                    <div class="project-type">Documentary</div>
-                    <h3>Project Title Here</h3>
-                    <p class="project-description">
-                        Add details about the project and your contribution.
+                    <h3 data-translate-project-name="cplusplus">C++</h3>
+                    <p class="project-description" data-translate-project-desc="cplusplus">
+                        Sound design, mixing and mastering for this innovative short film project.
                     </p>
                 </div>
             </div>
 
-            <!-- Add more completed projects here -->
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="section-subtitle">Current Projects</div>
-        
-        <div class="projects-grid">
-            <!-- Current Project 1 -->
+            <!-- Project 4: The Freedom Monument -->
             <div class="project-card">
-                <div class="project-image">PROJECT IMAGE</div>
+                <div class="project-image">
+                    <img src="img/The freedom monument Dreams and Revaluations(short film).jpg" alt="The Freedom Monument Dreams and Revaluations">
+                </div>
                 <div class="project-content">
-                    <div class="project-type">In Production</div>
-                    <h3>Current Project Title</h3>
-                    <p class="project-description">
-                        Brief description of what you're working on currently.
+                    <div class="project-type">Short Film</div>
+                    <h3 data-translate-project-name="freedomMonument">The Freedom Monument: Dreams and Revaluations</h3>
+                    <p class="project-description" data-translate-project-desc="freedomMonument">
+                        Full audio post-production including original composition, sound design, and final mix for this powerful short film.
                     </p>
                 </div>
             </div>
 
-            <!-- Current Project 2 -->
+            <!-- Project 5: Abu Turab -->
             <div class="project-card">
-                <div class="project-image">PROJECT IMAGE</div>
+                <div class="project-image">
+                    <img src="img/abu turab(sound track).png" alt="Abu Turab Sound Track">
+                </div>
                 <div class="project-content">
-                    <div class="project-type">In Development</div>
-                    <h3>Current Project Title</h3>
-                    <p class="project-description">
-                        Add details about ongoing work.
+                    <div class="project-type">Sound Track</div>
+                    <h3 data-translate-project-name="abuTurab">Abu Turab</h3>
+                    <p class="project-description" data-translate-project-desc="abuTurab">
+                        Complete soundtrack production and audio design for this project.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Project 6: Meghesel -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="img/meghesel(tv show).png" alt="Meghesel TV Show">
+                </div>
+                <div class="project-content">
+                    <div class="project-type">TV Series</div>
+                    <h3 data-translate-project-name="meghesel">Meghesel</h3>
+                    <p class="project-description" data-translate-project-desc="meghesel">
+                        Full audio production including soundtrack composition, sound design, mixing and mastering for this TV series.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Project 7: Songs of Adam -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="img/songs of adam(short film).png" alt="Songs of Adam Short Film">
+                </div>
+                <div class="project-content">
+                    <div class="project-type">Short Film</div>
+                    <h3 data-translate-project-name="songsOfAdam">Songs of Adam</h3>
+                    <p class="project-description" data-translate-project-desc="songsOfAdam">
+                        Complete audio post-production including original score, sound design, and final mix for this short film.
                     </p>
                 </div>
             </div>

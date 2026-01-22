@@ -5,102 +5,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services - ZONE Studio</title>
+    <link rel="icon" type="image/jpeg" href="img/Logo0.jpg">
     <link rel="stylesheet" href="styles.css">
+    <script src="language.js"></script>
 </head>
 <body>
     <nav>
         <div class="logo">
             <a href="index.html">
-                <img src="https://github.com/user-attachments/assets/dd2e23c5-c5b5-4ab1-8a74-633e662b9dc5" alt="Zone Studio Logo">
+                <img src="img/Logo0.jpg" alt="Zone Studio Logo">
             </a>
         </div>
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html" class="active">Services</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="studio.html">Studio</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html" data-translate-nav="home">Home</a></li>
+            <li><a href="services.html" class="active" data-translate-nav="services">Services</a></li>
+            <li><a href="projects.html" data-translate-nav="projects">Projects</a></li>
+            <li><a href="studio.html" data-translate-nav="studio">Studio</a></li>
+            <li><a href="contact.html" data-translate-nav="contact">Contact</a></li>
         </ul>
+        <div class="language-switcher">
+            <button class="lang-btn">عربي</button>
+        </div>
     </nav>
 
     <div class="page-header">
-        <h1>Our Services</h1>
-        <p>Professional audio production tailored to your needs</p>
+        <h1 data-translate-service="title">Our Services</h1>
+        <p data-translate-service="subtitle">Professional audio production tailored to your needs</p>
     </div>
 
     <section>
         <div class="services-grid">
             <div class="service-card">
-                <h3>Recording</h3>
-                <p>State-of-the-art recording facilities with premium microphones and preamps. Capture your sound with pristine clarity and warmth in our acoustically treated rooms.</p>
+                <h3 data-translate-service="recording">Recording</h3>
+                <p data-translate-service="recordingDesc">State-of-the-art recording facilities with premium microphones and preamps. Capture your sound with pristine clarity and warmth in our acoustically treated rooms.</p>
                 <ul class="service-features">
-                    <li>Vocal recording</li>
-                    <li>Instrument tracking</li>
-                    <li>Live band sessions</li>
-                    <li>Voice-over recording</li>
+                    <li data-translate-service="recordingVocal">Vocal recording</li>
+                    <li data-translate-service="recordingInstrument">Instrument tracking</li>
+                    <li data-translate-service="recordingLive">Live band sessions</li>
+                    <li data-translate-service="recordingVoiceover">Voice-over recording</li>
                 </ul>
             </div>
             
             <div class="service-card">
-                <h3>Mixing</h3>
-                <p>Professional mixing services that bring balance, depth, and polish to your tracks. We make your music translate across all playback systems.</p>
+                <h3 data-translate-service="mixing">Mixing</h3>
+                <p data-translate-service="mixingDesc">Professional mixing services that bring balance, depth, and polish to your tracks. We make your music translate across all playback systems.</p>
                 <ul class="service-features">
-                    <li>Multi-track mixing</li>
-                    <li>Stem mixing</li>
-                    <li>Dolby Atmos mixing</li>
-                    <li>Remix services</li>
+                    <li data-translate-service="mixingMulti">Multi-track mixing</li>
+                    <li data-translate-service="mixingStem">Stem mixing</li>
+                    <li data-translate-service="mixingAtmos">Dolby Atmos mixing</li>
+                    <li data-translate-service="mixingRemix">Remix services</li>
                 </ul>
             </div>
             
             <div class="service-card">
-                <h3>Mastering</h3>
-                <p>Final touch mastering that ensures your music sounds competitive and ready for all streaming platforms and physical media.</p>
+                <h3 data-translate-service="mastering">Mastering</h3>
+                <p data-translate-service="masteringDesc">Final touch mastering that ensures your music sounds competitive and ready for all streaming platforms and physical media.</p>
                 <ul class="service-features">
-                    <li>Stereo mastering</li>
-                    <li>Stem mastering</li>
-                    <li>Vinyl mastering</li>
-                    <li>Streaming optimization</li>
+                    <li data-translate-service="masteringStereo">Stereo mastering</li>
+                    <li data-translate-service="masteringStem">Stem mastering</li>
+                    <li data-translate-service="masteringVinyl">Vinyl mastering</li>
+                    <li data-translate-service="masteringStreaming">Streaming optimization</li>
                 </ul>
             </div>
             
             <div class="service-card">
-                <h3>Production</h3>
-                <p>Full music production from concept to completion. We help bring your creative vision to life with our experienced team.</p>
+                <h3 data-translate-service="production">Production</h3>
+                <p data-translate-service="productionDesc">Full music production from concept to completion. We help bring your creative vision to life with our experienced team.</p>
                 <ul class="service-features">
-                    <li>Beat production</li>
-                    <li>Arrangement</li>
-                    <li>Session musicians</li>
-                    <li>Pre-production consultation</li>
+                    <li data-translate-service="productionBeat">Beat production</li>
+                    <li data-translate-service="productionArrangement">Arrangement</li>
+                    <li data-translate-service="productionMusicians">Session musicians</li>
+                    <li data-translate-service="productionPre">Pre-production consultation</li>
                 </ul>
             </div>
             
             <div class="service-card">
-                <h3>Sound Design</h3>
-                <p>Custom sound design for film, games, and multimedia projects. Create unique sonic identities that captivate audiences.</p>
+                <h3 data-translate-service="soundDesign">Sound Design</h3>
+                <p data-translate-service="soundDesignDesc">Custom sound design for film, games, and multimedia projects. Create unique sonic identities that captivate audiences.</p>
                 <ul class="service-features">
-                    <li>Film sound design</li>
-                    <li>Game audio</li>
-                    <li>Foley recording</li>
-                    <li>Audio branding</li>
+                    <li data-translate-service="soundDesignFilm">Film sound design</li>
+                    <li data-translate-service="soundDesignGame">Game audio</li>
+                    <li data-translate-service="soundDesignFoley">Foley recording</li>
+                    <li data-translate-service="soundDesignBranding">Audio branding</li>
                 </ul>
             </div>
             
             <div class="service-card">
-                <h3>Post-Production</h3>
-                <p>Complete audio post-production for film, TV, and digital content. From dialogue editing to final mix.</p>
+                <h3 data-translate-service="postProduction">Post-Production</h3>
+                <p data-translate-service="postProductionDesc">Complete audio post-production for film, TV, and digital content. From dialogue editing to final mix.</p>
                 <ul class="service-features">
-                    <li>Dialogue editing</li>
-                    <li>ADR recording</li>
-                    <li>Audio restoration</li>
-                    <li>Final mix for picture</li>
+                    <li data-translate-service="postProductionDialogue">Dialogue editing</li>
+                    <li data-translate-service="postProductionADR">ADR recording</li>
+                    <li data-translate-service="postProductionRestoration">Audio restoration</li>
+                    <li data-translate-service="postProductionFinal">Final mix for picture</li>
                 </ul>
             </div>
         </div>
     </section>
 
     <section class="cta-section">
-        <h2>Ready to Start Your Project?</h2>
-        <a href="contact.html" class="cta-button">Get in Touch</a>
+        <h2 data-translate-service="readyToStart">Ready to Start Your Project?</h2>
+        <a href="contact.html" class="cta-button" data-translate-service="getInTouch">Get in Touch</a>
     </section>
 
     <footer>
