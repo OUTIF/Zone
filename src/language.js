@@ -24,6 +24,7 @@ const translations = {
             serviceProductionDesc: "Full music production from concept to completion",
             serviceMixing: "Mixing & Mastering",
             serviceMixingDesc: "Professional polish for release-ready tracks"
+            
         },
         projects: {
             title: "Projects",
@@ -139,7 +140,10 @@ const translations = {
             serviceProduction: "الإنتاج",
             serviceProductionDesc: "إنتاج موسيقي كامل من المفهوم إلى الإنجاز",
             serviceMixing: "المزج والماسترينغ",
-            serviceMixingDesc: "لمسة احترافية للأغاني الجاهزة للإصدار"
+            serviceMixingDesc: "لمسة احترافية للأغاني الجاهزة للإصدار",
+            ProjectsCompleted:"مشاريع منجزة",
+            AwardsWon:"جوائز محققة",
+            HappyClients:"عملاء سعداء"
         },
         projects: {
             title: "المشاريع",
@@ -152,7 +156,8 @@ const translations = {
             findUs: "اعثر علينا",
             visitUs: "زرنا في موقع الاستوديو",
             openMaps: "فتح في خرائط جوجل",
-            ourTeam: "فريقنا"
+            ourTeam: "فريقنا",
+            bio: "\nمغنّي، كاتب أغانٍ، منتج موسيقي، ومؤلف موسيقي.\nخريج مدرسة الموسيقى والباليه.\nخريج الدراسات الموسيقية في كلية الفنون الجميلة.\nخبرة في الأداء، التأليف، والإنتاج الموسيقي."
         },
         contact: {
             title: "تواصل معنا",
