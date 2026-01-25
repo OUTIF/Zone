@@ -23,8 +23,10 @@ const translations = {
             serviceProduction: "Production",
             serviceProductionDesc: "Full music production from concept to completion",
             serviceMixing: "Mixing & Mastering",
-            serviceMixingDesc: "Professional polish for release-ready tracks"
-            
+            serviceMixingDesc: "Professional polish for release-ready tracks",
+            ProjectsCompleted: "Projects Completed",
+            AwardsWon: "Awards Won",
+            HappyClients: "Happy Clients"
         },
         projects: {
             title: "Projects",
@@ -37,7 +39,8 @@ const translations = {
             findUs: "Find Us",
             visitUs: "Visit us at our studio location",
             openMaps: "Open in Google Maps",
-            ourTeam: "Our Team"
+            ourTeam: "Our Team",
+            bio: "Singer, songwriter, producer, and music composer.\nGraduate of a Music and Ballet School,\nGraduate of Musical Studies at a Fine Arts College.\nBackground in performance, composition, and music production.\nFocused on original music and professional sound creation."
         },
         contact: {
             title: "Get in Touch",
@@ -53,7 +56,11 @@ const translations = {
             phoneLabel: "Phone",
             addressLabel: "Address",
             hours: "Hours",
-            followUs: "Follow Us"
+            followUs: "Follow Us",
+            hoursdata: "Week days : By Appointment\n Friday - saturday: By Appointment",
+            addressdata: "al-adamiyah 306-22\nBaghdad\nIRAQ"
+            
+
         },
         projectNames: {
             cplusplus: "C++",
@@ -157,7 +164,7 @@ const translations = {
             visitUs: "زرنا في موقع الاستوديو",
             openMaps: "فتح في خرائط جوجل",
             ourTeam: "فريقنا",
-            bio: "\nمغنّي، كاتب أغانٍ، منتج موسيقي، ومؤلف موسيقي.\nخريج مدرسة الموسيقى والباليه.\nخريج الدراسات الموسيقية في كلية الفنون الجميلة.\nخبرة في الأداء، التأليف، والإنتاج الموسيقي."
+            bio: "مغنّي، كاتب أغانٍ، منتج موسيقي، ومؤلف موسيقي.خريج مدرسة الموسيقى والباليه.خريج الدراسات الموسيقية في كلية الفنون الجميلة.خبرة في الأداء، التأليف، والإنتاج الموسيقي.يركز على الموسيقى الأصلية وإنشاء الصوت الاحترافي."
         },
         contact: {
             title: "تواصل معنا",
@@ -177,7 +184,11 @@ const translations = {
             EMAIL: "البريد الإلكتروني",
             PHONE: "الهاتف",
             ADDRESS: "العنوان",
-            Hours: "ساعات العمل"
+            Hours: "ساعات العمل",
+            hoursdata: "أيام الأسبوع : موعد\nالجمعة  - السبت : موعد",
+            addressdata: "العراق / بغداد / الاعظمية / 306-22"
+
+
         },
         projectNames: {
             cplusplus: "++c",
@@ -259,8 +270,44 @@ function setLanguage(lang) {
 function updatePageContent() {
     const lang = translations[currentLang];
     
-    // Update navigation
+    // Add smooth fade-out effect for content
+    const mainContent = document.querySelector('main, section, .hero, .page-header');
+    if (mainContent) {
+        mainContent.style.transition = 'opacity 0.3s ease';
+        mainContent.style.opacity = '0.6';
+    }
+    
+    // Update navigation with smooth transition
     const navLinks = document.querySelectorAll('[data-translate-nav]');
+    const navLinksContainer = document.querySelector('.nav-links');
+    
+    if (navLinksContainer) {
+        // Get all nav link items (li elements)
+        const navItems = Array.from(navLinksContainer.children);
+        
+        // Define the correct order for each language
+        const englishOrder = ['home', 'services', 'projects', 'studio', 'contact'];
+        const arabicOrder = ['contact', 'studio', 'projects', 'services', 'home']; // Reversed
+        
+        const targetOrder = currentLang === 'ar' ? arabicOrder : englishOrder;
+        
+        // Sort nav items according to target order
+        const sortedItems = targetOrder.map(key => 
+            navItems.find(item => {
+                const link = item.querySelector('[data-translate-nav]');
+                return link && link.getAttribute('data-translate-nav') === key;
+            })
+        ).filter(Boolean);
+        
+        // Reorder the DOM elements with smooth transition
+        navLinksContainer.style.opacity = '0.5';
+        setTimeout(() => {
+            sortedItems.forEach(item => navLinksContainer.appendChild(item));
+            navLinksContainer.style.opacity = '1';
+        }, 150);
+    }
+    
+    // Update navigation text
     navLinks.forEach(link => {
         const key = link.getAttribute('data-translate-nav');
         if (lang.nav[key]) {
@@ -291,7 +338,12 @@ function updatePageContent() {
     studioElements.forEach(element => {
         const key = element.getAttribute('data-translate-studio');
         if (lang.studio[key]) {
-            element.textContent = lang.studio[key];
+            // Use innerHTML for bio to preserve line breaks
+            if (key === 'bio') {
+                element.innerHTML = lang.studio[key].replace(/\n/g, '<br>');
+            } else {
+                element.textContent = lang.studio[key];
+            }
         }
     });
     
@@ -300,7 +352,12 @@ function updatePageContent() {
     contactElements.forEach(element => {
         const key = element.getAttribute('data-translate-contact');
         if (lang.contact[key]) {
-            element.textContent = lang.contact[key];
+            // Use innerHTML for addressdata and hoursdata to preserve line breaks
+            if (key === 'addressdata' || key === 'hoursdata') {
+                element.innerHTML = lang.contact[key].replace(/\n/g, '<br>');
+            } else {
+                element.textContent = lang.contact[key];
+            }
         }
     });
     
@@ -349,6 +406,14 @@ function updatePageContent() {
             btn.textContent = 'English';
         }
     });
+    
+    // Fade-in effect after a short delay
+    setTimeout(() => {
+        const mainContent = document.querySelector('main, section, .hero, .page-header');
+        if (mainContent) {
+            mainContent.style.opacity = '1';
+        }
+    }, 200);
 }
 
 // Initialize language on page load
