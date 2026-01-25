@@ -1,10 +1,14 @@
 # Netlify configuration file
 # This ensures proper content-type headers for sitemap.xml and robots.txt
 
+[build]
+  publish = "src"
+
 [[headers]]
   for = "/sitemap.xml"
   [headers.values]
     Content-Type = "application/xml; charset=utf-8"
+    X-Content-Type-Options = "nosniff"
 
 [[headers]]
   for = "/robots.txt"
