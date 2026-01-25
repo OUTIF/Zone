@@ -270,12 +270,10 @@ function setLanguage(lang) {
 function updatePageContent() {
     const lang = translations[currentLang];
     
-    // Add smooth fade-out effect for content
-    const mainContent = document.querySelector('main, section, .hero, .page-header');
-    if (mainContent) {
-        mainContent.style.transition = 'opacity 0.3s ease';
-        mainContent.style.opacity = '0.6';
-    }
+    // Add smooth fade-out effect for entire page content
+    document.body.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    document.body.style.opacity = '0.7';
+    document.body.style.transform = 'translateY(10px)';
     
     // Update navigation with smooth transition
     const navLinks = document.querySelectorAll('[data-translate-nav]');
@@ -299,121 +297,108 @@ function updatePageContent() {
             })
         ).filter(Boolean);
         
-        // Reorder the DOM elements with smooth transition
-        navLinksContainer.style.opacity = '0.5';
+        // Animate navigation items out
+        navItems.forEach((item, index) => {
+            item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            item.style.opacity = '0';
+            item.style.transform = 'translateX(-20px)';
+        });
+        
+        // Reorder and animate navigation items in
         setTimeout(() => {
-            sortedItems.forEach(item => navLinksContainer.appendChild(item));
-            navLinksContainer.style.opacity = '1';
-        }, 150);
+            sortedItems.forEach((item, index) => {
+                navLinksContainer.appendChild(item);
+                // Stagger the animation for each item
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateX(0)';
+                }, index * 50);
+            });
+        }, 300);
     }
     
-    // Update navigation text
-    navLinks.forEach(link => {
+    // Update navigation text with smooth fade
+    navLinks.forEach((link, index) => {
         const key = link.getAttribute('data-translate-nav');
         if (lang.nav[key]) {
-            link.textContent = lang.nav[key];
+            // Fade out, change text, fade in
+            link.style.transition = 'opacity 0.2s ease';
+            link.style.opacity = '0';
+            setTimeout(() => {
+                link.textContent = lang.nav[key];
+                link.style.opacity = '1';
+            }, 200 + (index * 30));
         }
     });
     
-    // Update home page content
-    const homeElements = document.querySelectorAll('[data-translate-home]');
-    homeElements.forEach(element => {
-        const key = element.getAttribute('data-translate-home');
-        if (lang.home[key]) {
-            element.textContent = lang.home[key];
-        }
-    });
-    
-    // Update projects page
-    const projectElements = document.querySelectorAll('[data-translate-projects]');
-    projectElements.forEach(element => {
-        const key = element.getAttribute('data-translate-projects');
-        if (lang.projects[key]) {
-            element.textContent = lang.projects[key];
-        }
-    });
-    
-    // Update studio page
-    const studioElements = document.querySelectorAll('[data-translate-studio]');
-    studioElements.forEach(element => {
-        const key = element.getAttribute('data-translate-studio');
-        if (lang.studio[key]) {
-            // Use innerHTML for bio to preserve line breaks
-            if (key === 'bio') {
-                element.innerHTML = lang.studio[key].replace(/\n/g, '<br>');
-            } else {
-                element.textContent = lang.studio[key];
+    // Update all translatable content with smooth transitions
+    const updateElements = (selector, dataAttr, translationObj) => {
+        const elements = document.querySelectorAll(`[${dataAttr}]`);
+        elements.forEach((element, index) => {
+            const key = element.getAttribute(dataAttr);
+            if (translationObj[key]) {
+                element.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(10px)';
+                
+                setTimeout(() => {
+                    if (key === 'bio' || key === 'addressdata' || key === 'hoursdata') {
+                        element.innerHTML = translationObj[key].replace(/\n/g, '<br>');
+                    } else {
+                        element.textContent = translationObj[key];
+                    }
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, 400 + (index * 30));
             }
+        });
+    };
+    
+    // Update all content sections
+    setTimeout(() => {
+        updateElements('[data-translate-home]', 'data-translate-home', lang.home);
+        updateElements('[data-translate-projects]', 'data-translate-projects', lang.projects);
+        updateElements('[data-translate-studio]', 'data-translate-studio', lang.studio);
+        updateElements('[data-translate-contact]', 'data-translate-contact', lang.contact);
+        updateElements('[data-translate-project-name]', 'data-translate-project-name', lang.projectNames);
+        updateElements('[data-translate-project-desc]', 'data-translate-project-desc', lang.projectDescriptions);
+        updateElements('[data-translate-service]', 'data-translate-service', lang.services);
+    }, 300);
+    
+    // Update direction for Arabic with smooth transition
+    setTimeout(() => {
+        if (currentLang === 'ar') {
+            document.body.style.direction = 'rtl';
+            document.body.style.textAlign = 'right';
+        } else {
+            document.body.style.direction = 'ltr';
+            document.body.style.textAlign = 'left';
         }
-    });
+    }, 350);
     
-    // Update contact page
-    const contactElements = document.querySelectorAll('[data-translate-contact]');
-    contactElements.forEach(element => {
-        const key = element.getAttribute('data-translate-contact');
-        if (lang.contact[key]) {
-            // Use innerHTML for addressdata and hoursdata to preserve line breaks
-            if (key === 'addressdata' || key === 'hoursdata') {
-                element.innerHTML = lang.contact[key].replace(/\n/g, '<br>');
-            } else {
-                element.textContent = lang.contact[key];
-            }
-        }
-    });
-    
-    // Update project names
-    const projectNames = document.querySelectorAll('[data-translate-project-name]');
-    projectNames.forEach(element => {
-        const key = element.getAttribute('data-translate-project-name');
-        if (lang.projectNames[key]) {
-            element.textContent = lang.projectNames[key];
-        }
-    });
-    
-    // Update project descriptions
-    const projectDescriptions = document.querySelectorAll('[data-translate-project-desc]');
-    projectDescriptions.forEach(element => {
-        const key = element.getAttribute('data-translate-project-desc');
-        if (lang.projectDescriptions[key]) {
-            element.textContent = lang.projectDescriptions[key];
-        }
-    });
-    
-    // Update services page
-    const serviceElements = document.querySelectorAll('[data-translate-service]');
-    serviceElements.forEach(element => {
-        const key = element.getAttribute('data-translate-service');
-        if (lang.services[key]) {
-            element.textContent = lang.services[key];
-        }
-    });
-    
-    // Update direction for Arabic
-    if (currentLang === 'ar') {
-        document.body.style.direction = 'rtl';
-        document.body.style.textAlign = 'right';
-    } else {
-        document.body.style.direction = 'ltr';
-        document.body.style.textAlign = 'left';
-    }
-    
-    // Update language button text
+    // Update language button text with animation
     const langButtons = document.querySelectorAll('.lang-btn');
     langButtons.forEach(btn => {
-        if (currentLang === 'en') {
-            btn.textContent = 'عربي';
-        } else {
-            btn.textContent = 'English';
-        }
+        btn.style.transition = 'all 0.3s ease';
+        btn.style.transform = 'scale(0.9)';
+        btn.style.opacity = '0.7';
+        
+        setTimeout(() => {
+            if (currentLang === 'en') {
+                btn.textContent = 'عربي';
+            } else {
+                btn.textContent = 'English';
+            }
+            btn.style.transform = 'scale(1)';
+            btn.style.opacity = '1';
+        }, 300);
     });
     
-    // Fade-in effect after a short delay
+    // Fade-in entire page after all transitions
     setTimeout(() => {
-        const mainContent = document.querySelector('main, section, .hero, .page-header');
-        if (mainContent) {
-            mainContent.style.opacity = '1';
-        }
-    }, 200);
+        document.body.style.opacity = '1';
+        document.body.style.transform = 'translateY(0)';
+    }, 500);
 }
 
 // Initialize language on page load

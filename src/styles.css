@@ -13,6 +13,7 @@ body {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 /* Prevent text size adjustment on iOS */
@@ -34,12 +35,14 @@ nav {
     backdrop-filter: blur(10px);
     z-index: 1000;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    direction: ltr; /* Keep nav structure fixed */
 }
 
 .logo {
     display: flex;
     align-items: center;
     gap: 10px;
+    direction: ltr; /* Keep logo position fixed */
 }
 
 .logo a {
@@ -56,6 +59,13 @@ nav {
     display: flex;
     gap: 40px;
     list-style: none;
+    transition: opacity 0.3s ease;
+    direction: ltr; /* Keep nav links order controlled by JavaScript */
+}
+
+.nav-links li {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    will-change: transform, opacity;
 }
 
 .nav-links a {
@@ -94,6 +104,7 @@ nav {
     display: flex;
     align-items: center;
     gap: 10px;
+    direction: ltr; /* Keep language button position fixed */
 }
 
 .lang-btn {
