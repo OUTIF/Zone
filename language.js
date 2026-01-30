@@ -26,7 +26,10 @@ const translations = {
             serviceMixingDesc: "Professional polish for release-ready tracks",
             ProjectsCompleted: "Projects Completed",
             AwardsWon: "Awards Won",
-            HappyClients: "Happy Clients"
+            HappyClients: "Happy Clients",
+            mainname: "ZONE ال"
+            
+            
         },
         projects: {
             title: "Projects",
@@ -150,7 +153,8 @@ const translations = {
             serviceMixingDesc: "لمسة احترافية للأغاني الجاهزة للإصدار",
             ProjectsCompleted:"مشاريع منجزة",
             AwardsWon:"جوائز محققة",
-            HappyClients:"عملاء سعداء"
+            HappyClients:"عملاء سعداء",
+            mainname: "ال ZONE"
         },
         projects: {
             title: "المشاريع",
