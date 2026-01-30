@@ -2,7 +2,7 @@
 # This ensures proper content-type headers for sitemap.xml and robots.txt
 
 [build]
-  publish = "src"
+  publish = "."
 
 [[headers]]
   for = "/sitemap.xml"
